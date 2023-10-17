@@ -38,7 +38,9 @@ async function run() {
       const { id } = req.params;
       const query = { _id: new ObjectId(id) };
       const options = {
-        projection: { title: 1, price: 1, service_id: 1 },
+        projection: {
+          title: 1, price: 1, service_id: 1, img: 1,
+        },
       };
       const result = await serviceCollection.findOne(query, options);
       res.send(result);
